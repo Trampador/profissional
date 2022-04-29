@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>br.com.votorantim.trampador.atomic</groupId>
+    <artifactId>sboot-trampador-atomic-atom-profissional</artifactId>
+    <version>1.0.0</version>
+  </parent>
+
+  <name>Servico de Profissional (application)</name>
+  <description>profissional - Modulo de Aplicacao</description>
+
+  <artifactId>sboot-trampador-atomic-atom-profissional-application</artifactId>
+  <version>1.0.0</version>
+
+  <properties>
+    <java.version>11</java.version>
+    <swagger.version>2.9.2</swagger.version>
+    <swagger.annotations.version>1.5.23</swagger.annotations.version>
+    <pact.jvm.provider.junit5.version>4.0.3</pact.jvm.provider.junit5.version>
+    <bv.audit.version>2.2.1</bv.audit.version>
+    <jdbi.version>3.9.1</jdbi.version>
+    <architecture.read>application</architecture.read>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>br.com.votorantim.trampador.atomic</groupId>
+      <artifactId>sboot-trampador-atomic-atom-profissional-domain</artifactId>
+      <version>1.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+
+
+    <!-- dependency swagger -->
+    <dependency>
+      <groupId>io.swagger</groupId>
+      <artifactId>swagger-annotations</artifactId>
+      <version>${swagger.annotations.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger2</artifactId>
+      <version>${swagger.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger-ui</artifactId>
+      <version>${swagger.version}</version>
+    </dependency>
+    <!-- Actuator -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.micrometer</groupId>
+      <artifactId>micrometer-registry-prometheus</artifactId>
+    </dependency>
+    <!-- Audit -->
+    <dependency>
+      <groupId>br.com.votorantim.arqt.base</groupId>
+      <artifactId>springboot-arqt-base-trilha-auditoria-web</artifactId>
+      <version>${bv.audit.version}</version>
+    </dependency>
+    <!-- Testing -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.junit.vintage</groupId>
+          <artifactId>junit-vintage-engine</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>au.com.dius</groupId>
+      <artifactId>pact-jvm-provider-junit5</artifactId>
+      <version>${pact.jvm.provider.junit5.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>build-info</id>
+            <goals>
+              <goal>build-info</goal>
+              <goal>repackage</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>copy</goal>
+            </goals>
+            <phase>package</phase>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>${project.groupId}</groupId>
+                  <artifactId>${project.artifactId}</artifactId>
+                  <version>${project.version}</version>
+                  <overWrite>true</overWrite>
+                  <outputDirectory>../docker</outputDirectory>
+                  <destFileName>${project.parent.artifactId}.jar</destFileName>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
