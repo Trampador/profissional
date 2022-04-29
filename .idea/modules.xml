@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/sboot-trampador-atomic-atom-profissional.iml" filepath="$PROJECT_DIR$/sboot-trampador-atomic-atom-profissional.iml" />
+      <module fileurl="file://$PROJECT_DIR$/application/sboot-trampador-atomic-atom-profissional-application.iml" filepath="$PROJECT_DIR$/application/sboot-trampador-atomic-atom-profissional-application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/sboot-trampador-atomic-atom-profissional-common.iml" filepath="$PROJECT_DIR$/common/sboot-trampador-atomic-atom-profissional-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/domain/sboot-trampador-atomic-atom-profissional-domain.iml" filepath="$PROJECT_DIR$/domain/sboot-trampador-atomic-atom-profissional-domain.iml" />
+    </modules>
+  </component>
+</project>

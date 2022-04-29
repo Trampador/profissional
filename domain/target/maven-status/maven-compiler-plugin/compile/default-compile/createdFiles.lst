@@ -1,0 +1,4 @@
+br/com/trampador/atomic/profissional/exception/ProfissionalException.class
+br/com/trampador/atomic/profissional/port/ProfissionalRepository.class
+br/com/trampador/atomic/profissional/service/ProfissionalService.class
+br/com/trampador/atomic/profissional/domain/Profissional.class

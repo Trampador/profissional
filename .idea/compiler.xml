@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="sboot-trampador-atomic-atom-profissional-domain" />
+        <module name="sboot-trampador-atomic-atom-profissional-application" />
+        <module name="sboot-trampador-atomic-atom-profissional-common" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="sboot-trampador-atomic-atom-profissional" target="11" />
+      <module name="sboot-trampador-atomic-atom-profissional-application" target="11" />
+      <module name="sboot-trampador-atomic-atom-profissional-common" target="11" />
+      <module name="sboot-trampador-atomic-atom-profissional-domain" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="sboot-trampador-atomic-atom-profissional-application" options="-parameters" />
+      <module name="sboot-trampador-atomic-atom-profissional-common" options="-parameters" />
+      <module name="sboot-trampador-atomic-atom-profissional-domain" options="-parameters" />
+    </option>
+  </component>
+</project>
